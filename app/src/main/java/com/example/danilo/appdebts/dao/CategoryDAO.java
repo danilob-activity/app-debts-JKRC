@@ -21,10 +21,12 @@ public class CategoryDAO {
         mConnection = conection;
     }
 
-    public void insert(Category cat){
+    public Category insert(Category cat){
         ContentValues contentValues = new ContentValues();
         contentValues.put("tipo", cat.getMtipo());
-        mConnection.insertOrThrow("categoria", null, contentValues);
+        long id = mConnection.insertOrThrow("categoria", null, contentValues);
+        cat.setMid(id);
+        return cat;
     }
     public void remove(int id){
         String[] params = new String[1];
