@@ -51,7 +51,7 @@ public class DebtsDAO {
         mConnection.update("dividas", contentValues, "id = ?", params);
     }
 
-    public List<Debts> listCategories(){
+    public List<Debts> listDebts(){
         List<Debts> debts = new ArrayList<Debts>();
         Cursor result = mConnection.rawQuery("Select id, cod_cat, valor, descricao, data_vencimento, data_pagamento from dividas",null);
         if(result.getCount()>0){
